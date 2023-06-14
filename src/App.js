@@ -1,4 +1,4 @@
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import LandingPage from "./components/LandingPage/LandingPage";
 import Home from "./components/Home/Home";
 import DogDetail from "./components/DogDetail/DogDetail";
@@ -10,15 +10,17 @@ import axios from "axios";
 axios.defaults.baseURL = "https://dogsapibackend-production.up.railway.app/";
 function App() {
   return (
-    <BrowserRouter>
-      <div>
-        <Route exact path="/" component={LandingPage} />
-        <Route path="/home" component={Home} />
-        <Route path="/dogs/:id" component={DogDetail} />
-        <Route path="/newDog/" component={DogCreation} />
-        <Route path="/about" component={About} />
-      </div>
-    </BrowserRouter>
+    <div>
+      <Router>
+        <Routes>
+          <Route exact path="/" element={<LandingPage />} />
+          <Route path="/home" element={<Home />} />
+          <Route path="/dogs/:id" element={<DogDetail />} />
+          <Route path="/newDog/" element={<DogCreation />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </Router>
+    </div>
   );
 }
 

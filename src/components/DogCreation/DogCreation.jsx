@@ -1,6 +1,7 @@
 import React, { useState, useEffect, Fragment } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { postDog, getTemperamentsList } from "../../redux/actions/index";
 import styles from "./DogCreation.module.css";
 
@@ -53,7 +54,7 @@ function validateForm(input) {
 
 export default function DogCreation() {
   const dispatch = useDispatch();
-  const history = useHistory();
+  const history = useNavigate();
   const temperament = useSelector((state) => state.temperaments).sort(function (
     a,
     b
